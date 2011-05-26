@@ -1,4 +1,5 @@
-
+%% -*- erlang-indent-level: 4;indent-tabs-mode: nil -*-
+%% ex: ts=4 sw=4 et
 -module(ryaws_sup).
 
 -behaviour(supervisor).
@@ -17,6 +18,7 @@
 %% ===================================================================
 
 start_link() ->
+    io:format(user, "ryaws_sup:start_link/0~n", []),
     supervisor:start_link({local, ?MODULE}, ?MODULE, []).
 
 %% ===================================================================
@@ -24,5 +26,5 @@ start_link() ->
 %% ===================================================================
 
 init([]) ->
-    {ok, { {one_for_one, 5, 10}, []} }.
-
+    io:format(user, "ryaws_sup:init/0~n", []),
+    {ok, { {one_for_one, 5, 10}, [?CHILD(ryaws, worker)]} }.

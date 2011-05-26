@@ -11,7 +11,7 @@ deps:
 clean:
 	rebar clean
 
-distclean: clean
+distclean: clean relclean
 	rebar delete-deps
 
 test:
@@ -22,3 +22,8 @@ rel: deps
 
 relclean:
 	rm -rf rel/ryaws
+
+rebuild: relclean all rel
+
+retest: rebuild
+	rel/ryaws/bin/ryaws console
