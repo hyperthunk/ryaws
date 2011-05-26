@@ -1,0 +1,12 @@
+{application, ryaws,
+ [
+  {description, "Sample rebar based yaws app"},
+  {vsn, git},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { ryaws_app, []}},
+  {env, []}
+ ]}.
