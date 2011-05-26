@@ -12,7 +12,7 @@ clean:
 	rebar clean
 
 distclean: clean relclean
-	rebar delete-deps
+	rebar delete-deps distclean
 
 test:
 	rebar skip_deps=true eunit
@@ -27,3 +27,6 @@ rebuild: relclean all rel
 
 retest: rebuild
 	rel/ryaws/bin/ryaws console
+
+dist:
+	rebar dist skip_deps=true

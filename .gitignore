@@ -1,4 +1,5 @@
 ebin/*.beam
 ebin/*.app
 deps/*
+dist/*
 rel/ryaws
